@@ -3,7 +3,7 @@ server.servlet.context-path=/api
 
 spring.jpa.hibernate.ddl-auto=update
 spring.datasource.url=jdbc:mariadb://localhost:3306/toolkit_for_everything
-spring.datasource.username=root
+spring.datasource.username=
 spring.datasource.password=
 spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
 spring.jpa.show-sql: true

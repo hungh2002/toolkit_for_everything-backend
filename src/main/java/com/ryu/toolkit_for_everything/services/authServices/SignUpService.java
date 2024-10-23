@@ -2,7 +2,7 @@ package com.ryu.toolkit_for_everything.services.authServices;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.ryu.toolkit_for_everything.dto.SignUpDTO;
+import com.ryu.toolkit_for_everything.dto.authDTO.AuthDTO;
 import com.ryu.toolkit_for_everything.entity.User;
 import com.ryu.toolkit_for_everything.repository.UserRepository;
 import jakarta.persistence.EntityExistsException;
@@ -14,7 +14,7 @@ public class SignUpService implements AuthService {
     private UserRepository userRepository;
 
     @Override
-    public User execute(SignUpDTO signUpDTO) {
+    public User execute(AuthDTO signUpDTO) {
 
         // Check if email already exists
         User user = userRepository.findByEmail(signUpDTO.getEmail());
