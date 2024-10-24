@@ -20,6 +20,7 @@ public class SignUpService implements AuthService {
         User user = userRepository.findByEmail(signUpDTO.getEmail());
 
         if (user == null) {
+            user = new User();
             user.setName(String.valueOf(System.currentTimeMillis()));
             user.setEmail(signUpDTO.getEmail());
             user.setPassword(signUpDTO.getPassword());
