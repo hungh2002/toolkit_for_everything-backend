@@ -3,9 +3,11 @@ package com.ryu.toolkit_for_everything.controller;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import com.ryu.toolkit_for_everything.dto.canvasDTO.CanvasDTO;
 
 @Controller
+@CrossOrigin
 public class DrawingController {
     @MessageMapping("/painter")
     @SendTo("/topic/drawing")

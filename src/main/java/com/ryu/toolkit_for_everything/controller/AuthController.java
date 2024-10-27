@@ -1,20 +1,26 @@
 package com.ryu.toolkit_for_everything.controller;
 
-import org.springframework.web.bind.annotation.RestController;
 import com.ryu.toolkit_for_everything.dto.authDTO.SignInDTO;
 import com.ryu.toolkit_for_everything.dto.authDTO.SignUpDTO;
+import com.ryu.toolkit_for_everything.entity.User;
 import com.ryu.toolkit_for_everything.services.authServices.AuthService;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
+@CrossOrigin
 public class AuthController {
 
     @Autowired
@@ -26,7 +32,8 @@ public class AuthController {
     AuthService signInService;
 
     @PostMapping("/sign-up")
-    public ResponseEntity<String> signUp(@RequestBody SignUpDTO signUpDTO) {
+    public ResponseEntity<String> signUp(@ModelAttribute SignUpDTO signUpDTO) {
+        System.out.println(signUpDTO.getEmail());
         try {
             signUpService.execute(signUpDTO);
             return ResponseEntity.ok("Sign up successfully");
@@ -40,10 +47,15 @@ public class AuthController {
     }
 
     @PostMapping("/sign-in")
-    public ResponseEntity<String> signIn(@RequestBody SignInDTO signIpDTO) {
+    public ResponseEntity<Object> signIn(@RequestBody SignInDTO signIpDTO) {
         try {
-            signInService.execute(signIpDTO);
-            return ResponseEntity.ok("Sign in successfully");
+            User user = signInService.execute(signIpDTO);
+
+            Map<String, String> data = new HashMap<String, String>();
+            data.put("userId", String.valueOf(user.getId()));
+            data.put("password", user.getPassword());
+
+            return ResponseEntity.ok(data);
         } catch (EntityNotFoundException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
         } catch (Exception e) {
