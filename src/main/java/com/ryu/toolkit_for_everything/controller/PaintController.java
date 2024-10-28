@@ -2,15 +2,15 @@ package com.ryu.toolkit_for_everything.controller;
 
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RestController;
 import com.ryu.toolkit_for_everything.dto.canvasDTO.CanvasDTO;
 
-@Controller
+@RestController
 @CrossOrigin
-public class DrawingController {
+public class PaintController {
     @MessageMapping("/painter")
-    @SendTo("/topic/drawing")
+    @SendTo("/topic/paint")
     public CanvasDTO greeting(CanvasDTO canvasDTO) {
         return canvasDTO;
     }
