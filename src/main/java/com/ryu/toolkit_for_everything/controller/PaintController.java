@@ -1,17 +1,27 @@
 package com.ryu.toolkit_for_everything.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RestController;
-import com.ryu.toolkit_for_everything.dto.canvasDTO.CanvasDTO;
+import com.ryu.toolkit_for_everything.dto.webSocket.message.WebSocketMessage;
 
-@RestController
+@Controller
 @CrossOrigin
 public class PaintController {
-    @MessageMapping("/painter")
-    @SendTo("/topic/paint")
-    public CanvasDTO greeting(CanvasDTO canvasDTO) {
-        return canvasDTO;
+
+    @Autowired
+    SimpMessagingTemplate template;
+
+    @MessageMapping("/room/{roomId}/paint/style")
+    public void paintStyle(@DestinationVariable long roomId, WebSocketMessage message) {
+        template.convertAndSend("/topic/room" + "/" + roomId + "/" + "paint/style", message);
+    }
+
+    @MessageMapping("/room/{roomId}/paint")
+    public void paint(@DestinationVariable long roomId, WebSocketMessage message) {
+        template.convertAndSend("/topic/room" + "/" + roomId + "/" + "paint", message);
     }
 }
