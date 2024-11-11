@@ -5,9 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class StyleDTO {
-
-    private Float lineWidth;
-
-    private String color;
+public class CurrentPosition {
+    private int x; 
+    private int y;
 }

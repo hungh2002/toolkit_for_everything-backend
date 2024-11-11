@@ -5,7 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PositionDTO {
-    private double x;
-    private double y;
+public class Position {
+    private RootPosition root;
+
+    private CurrentPosition current;
 }
