@@ -8,3 +8,8 @@ spring.datasource.username=
 spring.datasource.password=
 spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
 spring.jpa.show-sql: true
+
+## SSl
+# server.ssl.key-store=classpath:localhost+1.p12
+# server.ssl.key-store-type=PKCS12
+# server.ssl.key-store-password=changeit

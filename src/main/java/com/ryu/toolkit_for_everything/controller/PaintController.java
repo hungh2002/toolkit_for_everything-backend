@@ -15,9 +15,9 @@ public class PaintController {
     @Autowired
     SimpMessagingTemplate template;
 
-    @MessageMapping("/room/{roomId}/paint/style")
+    @MessageMapping("/room/{roomId}/paint/brush")
     public void paintStyle(@DestinationVariable long roomId, WebSocketMessage message) {
-        template.convertAndSend("/topic/room" + "/" + roomId + "/" + "paint/style", message);
+        template.convertAndSend("/topic/room" + "/" + roomId + "/" + "paint/brush", message);
     }
 
     @MessageMapping("/room/{roomId}/paint")
