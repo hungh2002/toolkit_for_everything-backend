@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.ryu</groupId>
 	<artifactId>toolkit_for_everything</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>toolkit_for_everything</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
@@ -91,10 +91,21 @@
 	</dependencies>
 
 	<build>
+	<finalName>toolkit_for_everything</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>start</goal>
+						</goals>
+						<configuration>
+							<skip>true</skip>
+						</configuration>
+					</execution>
+				</executions>
 				<configuration>
 					<excludes>
 						<exclude>
