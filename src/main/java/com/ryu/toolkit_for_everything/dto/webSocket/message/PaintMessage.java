@@ -7,7 +7,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PaintMessage extends WebSocketMessage  {
-    private long deviceId;
 
     private Paint paint;
 }

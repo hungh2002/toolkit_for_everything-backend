@@ -5,7 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Position {
-    private RootPosition root; 
-    private CurrentPosition current;
+public class Brush {
+  private String lineColor;
+  private int lineWidth;
+  private String lineCap;
 }

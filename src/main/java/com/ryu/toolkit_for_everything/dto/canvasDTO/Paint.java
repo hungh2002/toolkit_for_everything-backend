@@ -12,4 +12,6 @@ public class Paint {
     private PaintAction action;
 
     private Position position;
+
+    
 }

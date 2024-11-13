@@ -5,8 +5,8 @@ target/
 !**/src/test/**/target/
 
 src/main/resources/application.properties
-src/main/resources/application-production.properties
-src/main/resources/application-dev.properties
+src/main/resources/application-*.properties
+src/main/resources/localhost+1.p12
 
 ### logs folder ###
 logs
