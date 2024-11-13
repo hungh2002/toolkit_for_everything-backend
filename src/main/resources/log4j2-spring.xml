@@ -15,7 +15,7 @@
             </PatternLayout>
         </Console>
 
-        <RollingFile name="RollingFile" fileName="./logs/toolkitbackennd.viiic.net.log" filePattern="./logs/toolkitbackennd.viiic.net/$${date:yyyy-MM}/toolkitbackennd.viiic.net-%d{-dd-MMMM-yyyy}-%i.log">
+        <RollingFile name="RollingFile" fileName="./logs/toolkit_for_everything-backend.log" filePattern="./logs/toolkit_for_everything-backend/$${date:yyyy-MM}/toolkit_for_everything-backend-%d{-dd-MMMM-yyyy}-%i.log">
             <PatternLayout>
                 <Pattern>${LOG_PATTERN}</Pattern>
             </PatternLayout>
