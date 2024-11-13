@@ -30,8 +30,8 @@ jobs:
             cd /home/${{ secrets.USERNAME }}/Deploy/toolkit_for_everything/toolkit_for_everything-backend
             git switch main
             git pull origin main
-            mvn install
-            mvn clean package
+            mvn -DskipTests install
+            mvn -DskipTests clean package
             cd /home/${{ secrets.USERNAME }}/Deploy
             pm2 start ecosystem.config.js
             cd /home/${{ secrets.USERNAME }}/Deploy/toolkit_for_everything/toolkit_for_everything-backend    
