@@ -18,7 +18,7 @@ public class SignInService implements AuthService {
 
         User user = userRepository.findByEmail(signUpDTO.getEmail());
 
-        if (user != null && signUpDTO.getPassword().equals(user.getPassword())) {
+        if (user != null && !signUpDTO.getPassword().equals(user.getPassword())) {
             return user;
         } else {
             throw new EntityNotFoundException("Email or password incorrect.");
