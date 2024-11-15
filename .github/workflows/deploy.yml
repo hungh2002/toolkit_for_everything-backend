@@ -34,5 +34,4 @@ jobs:
             mvn -DskipTests clean package
             cd /home/${{ secrets.USERNAME }}/Deploy
             pm2 start ecosystem.config.js
-            cd /home/${{ secrets.USERNAME }}/Deploy/toolkit_for_everything/toolkit_for_everything-backend    
           
