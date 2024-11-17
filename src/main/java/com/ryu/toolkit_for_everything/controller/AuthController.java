@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@CrossOrigin
 public class AuthController {
 
     @Autowired
@@ -33,7 +31,6 @@ public class AuthController {
 
     @PostMapping("/sign-up")
     public ResponseEntity<String> signUp(@ModelAttribute SignUpDTO signUpDTO) {
-        System.out.println(signUpDTO.getEmail());
         try {
             signUpService.execute(signUpDTO);
             return ResponseEntity.ok("Sign up successfully");
