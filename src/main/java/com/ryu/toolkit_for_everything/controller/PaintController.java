@@ -10,7 +10,6 @@ import com.ryu.toolkit_for_everything.dto.webSocket.message.PaintMessage;
 import com.ryu.toolkit_for_everything.dto.webSocket.message.PaintStyleMessage;
 
 @Controller
-@CrossOrigin
 public class PaintController {
 
     @Autowired
