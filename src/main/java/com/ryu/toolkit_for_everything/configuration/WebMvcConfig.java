@@ -12,6 +12,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         .allowedOrigins("https://ryu.dob.jp, https://localhost:3000, http://localhost:10002")
         .allowedHeaders("*")
         .allowedMethods("*")
-        .maxAge(-1);
+        .maxAge(-1)
+        .allowCredentials(true);
     }
 }
