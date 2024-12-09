@@ -27,7 +27,7 @@ jobs:
           script: |
             sudo apt install default-jdk
             sudo apt install maven
-            cd /home/${{ secrets.USERNAME }}/Deploy/toolkit_for_everything/toolkit_for_everything-backend
+            cd /home/${{ secrets.USERNAME }}/Deploy/toolkit_for_everything/production/toolkit_for_everything-backend
             git switch main
             git pull origin main
             mvn -DskipTests install
