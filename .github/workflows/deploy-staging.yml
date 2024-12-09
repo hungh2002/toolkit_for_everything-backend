@@ -28,8 +28,8 @@ jobs:
             sudo apt install default-jdk
             sudo apt install maven
             cd /home/${{ secrets.USERNAME }}/Deploy/toolkit_for_everything/staging/toolkit_for_everything-backend
-            git switch main
-            git pull origin main
+            git switch staging
+            git pull origin staging
             mvn -DskipTests install
             mvn -DskipTests clean package
             cd /home/${{ secrets.USERNAME }}/Deploy
